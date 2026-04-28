@@ -1,0 +1,111 @@
+/* Variables de couleurs */
+:root {
+    --bg-black: #020617;
+    --deep-blue: #0f172a;
+    --accent-blue: #38bdf8;
+    --text-gray: #94a3b8;
+    --text-white: #f8fafc;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg-black);
+    color: var(--text-gray);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+/* Hero Section avec Vidéo */
+.hero {
+    position: relative;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-align: center;
+}
+
+#hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    filter: brightness(0.4);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, transparent, var(--bg-black));
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    color: var(--text-white);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    color: var(--accent-blue);
+}
+
+/* Article Container */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+h2 {
+    color: var(--text-white);
+    margin: 40px 0 20px;
+    font-size: 1.8rem;
+}
+
+.highlight {
+    font-size: 1.2rem;
+    color: var(--text-white);
+    border-left: 4px solid var(--accent-blue);
+    padding-left: 20px;
+    margin: 20px 0;
+}
+
+.article-img {
+    width: 100%;
+    border-radius: 12px;
+    margin: 20px 0;
+    border: 1px solid var(--deep-blue);
+}
+
+.info-box {
+    background: var(--deep-blue);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px dashed var(--accent-blue);
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background: var(--accent-blue);
+    color: var(--bg-black);
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+}
