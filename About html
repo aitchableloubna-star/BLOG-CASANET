@@ -1,2 +1,15 @@
-<h1>About Data & AI Blog</h1>
-<p>This blog explains how data and AI transform business decisions.</p>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body style="padding:120px 40px; background:#000814;">
+<h1>About</h1>
+<p style="margin-top:20px; font-size:20px;">
+This website explores how Data & AI help companies make smarter decisions.
+</p>
+</body>
+</html>
