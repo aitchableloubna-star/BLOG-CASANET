@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog | Data & AI Insights</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --primary: #4da6ff;
             --bg: #0a0b10;
             --card-bg: #161b22;
-            --text-main: #ffffff;
-            --text-dim: #a1a1a1;
+            --text-white: #ffffff;
+            --text-gray: #a1a1a1;
         }
 
         * {
@@ -23,8 +24,9 @@
 
         body {
             background-color: var(--bg);
-            color: var(--text-main);
+            color: var(--text-white);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         /* NAVBAR */
@@ -33,8 +35,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(10, 11, 16, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(10, 11, 16, 0.98);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -45,7 +46,7 @@
             font-size: 22px;
             font-weight: 900;
             color: var(--primary);
-            letter-spacing: 1px;
+            text-decoration: none;
         }
 
         nav a {
@@ -54,169 +55,158 @@
             margin-left: 25px;
             font-size: 14px;
             font-weight: 600;
-            transition: 0.3s;
             text-transform: uppercase;
+            transition: 0.3s;
         }
 
-        nav a:hover {
-            color: var(--primary);
-        }
+        nav a:hover { color: var(--primary); }
 
         /* HEADER */
         .blog-header {
             text-align: center;
-            padding: 80px 20px;
-            background: linear-gradient(to bottom, #0f172a, #0a0b10);
+            padding: 100px 20px;
+            background: linear-gradient(to bottom, #111827, #0a0b10);
         }
 
         .blog-header h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: 3.5rem;
             font-weight: 900;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
         }
 
         .subtitle {
-            color: var(--text-dim);
+            color: var(--text-gray);
             font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto;
         }
 
-        /* BLOG GRID */
+        /* GRID SYSTEM */
         .blog-container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 50px 20px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
 
+        /* ARTICLE CARD */
         .article {
             background: var(--card-bg);
-            border-radius: 16px;
+            border-radius: 12px;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: transform 0.3s ease, border-color 0.3s ease;
+            transition: 0.3s;
         }
 
         .article:hover {
             transform: translateY(-10px);
             border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(77, 166, 255, 0.1);
         }
 
-        .article-img {
+        .article img {
             width: 100%;
             height: 200px;
             object-fit: cover;
+            background: #222; /* Fallback if image fails */
         }
 
-        .article-content {
-            padding: 25px;
-        }
+        .article-content { padding: 25px; }
 
         .article h2 {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             margin-bottom: 15px;
             color: var(--primary);
         }
 
-        .article p, .article li {
-            color: var(--text-dim);
+        .article p {
+            color: var(--text-gray);
             font-size: 0.95rem;
-            margin-bottom: 10px;
-        }
-
-        .article ul {
-            padding-left: 20px;
             margin-bottom: 15px;
         }
 
-        /* SPECIAL QUOTE SECTION */
+        .article ul {
+            list-style: none;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        .article li::before {
+            content: "→ ";
+            color: var(--primary);
+        }
+
+        /* QUOTE */
         .quote-container {
-            grid-column: 1 / -1; /* Makes it full width in the grid */
-            background: linear-gradient(45deg, #1e293b, #0f172a);
-            padding: 60px;
-            border-radius: 20px;
+            grid-column: 1 / -1;
+            background: #1e293b;
+            padding: 50px;
+            border-radius: 15px;
             text-align: center;
-            margin-top: 40px;
             border: 1px dashed var(--primary);
         }
 
         .quote {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-style: italic;
-            font-weight: 300;
             color: white;
-        }
-
-        @media (max-width: 768px) {
-            .navbar { padding: 15px 5%; }
-            .blog-container { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-<header class="navbar">
-    <div class="logo">DATA & AI</div>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-</header>
+    <header class="navbar">
+        <a href="index.html" class="logo">DATA & AI</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
 
-<section class="blog-header">
-    <h1>Insights & Innovations</h1>
-    <p class="subtitle">
-        Exploring the frontier of Data Science and Artificial Intelligence.
-    </p>
-</section>
+    <section class="blog-header">
+        <h1>Blog Insights</h1>
+        <p class="subtitle">Exploring the future of technology and data.</p>
+    </section>
 
-<main class="blog-container">
+    <main class="blog-container">
+        <article class="article">
+            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80" alt="AI">
+            <div class="article-content">
+                <h2>L'Avantage Décisionnel</h2>
+                <p>Transformer la donnée brute en intelligence stratégique pour dominer votre marché.</p>
+                <ul>
+                    <li>Analyse prédictive</li>
+                    <li>Optimisation des flux</li>
+                </ul>
+            </div>
+        </article>
 
-    <article class="article">
-        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80" alt="Cyber Technology" class="article-img">
-        <div class="article-content">
-            <h2>L'Avantage Décisionnel</h2>
-            <p>La vraie valeur réside dans l’exploitation intelligente des volumes massifs de données collectées.</p>
-            <ul>
-                <li>Anticiper les tendances</li>
-                <li>Optimiser les performances</li>
-                <li>Réduire les risques stratégiques</li>
-            </ul>
+        <article class="article">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Data">
+            <div class="article-content">
+                <h2>Marketing & IA</h2>
+                <p>Comment les algorithmes redéfinissent la relation client en 2026.</p>
+            </div>
+        </article>
+
+        <article class="article">
+            <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=800&q=80" alt="Code">
+            <div class="article-content">
+                <h2>Compétences Clés</h2>
+                <p>Les langages et outils indispensables :</p>
+                <ul>
+                    <li>Python & SQL</li>
+                    <li>Power BI</li>
+                </ul>
+            </div>
+        </article>
+
+        <div class="quote-container">
+            <p class="quote">“La donnée seule ne vaut rien. Sa valeur naît lorsqu’elle guide une décision.”</p>
         </div>
-    </article>
-
-    <article class="article">
-        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Marketing Data" class="article-img">
-        <div class="article-content">
-            <h2>IA & Marketing Digital</h2>
-            <p>L’IA transforme le marketing moderne grâce aux recommandations personnalisées et à l'analyse comportementale en temps réel.</p>
-        </div>
-    </article>
-
-    <article class="article">
-        <img src="https://images.unsplash.com/photo-1580894732230-2826363aae58?auto=format&fit=crop&w=800&q=80" alt="Coding Skills" class="article-img">
-        <div class="article-content">
-            <h2>Compétences 2026</h2>
-            <p>Les outils indispensables pour rester compétitif sur le marché de la data cette année :</p>
-            <ul>
-                <li>Power BI & SQL</li>
-                <li>Python & Machine Learning</li>
-                <li>Advanced Excel</li>
-            </ul>
-        </div>
-    </article>
-
-    <div class="quote-container">
-        <div class="quote">
-            “La donnée seule ne vaut rien. Sa valeur naît lorsqu’elle guide une décision.”
-        </div>
-    </div>
-
-</main>
+    </main>
 
 </body>
 </html>
