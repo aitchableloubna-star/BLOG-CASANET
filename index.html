@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data & AI | Premium Experience</title>
+    <title>Data & AI | CASANET</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
 
     <style>
@@ -22,6 +22,7 @@
             overflow: hidden; 
         }
 
+        /* FULL SCREEN BACKGROUND IMAGE */
         .hero {
             position: relative;
             width: 100%;
@@ -29,58 +30,41 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            /* Using your image.png as the big background */
+            background-image: url('image.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
-        .hero video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -2;
-            transform: translate(-50%, -50%);
-            object-fit: cover;
-        }
-
+        /* DARK OVERLAY TO MAKE TEXT POP */
         .overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.8) 100%);
-            z-index: -1;
+            background: rgba(0, 0, 0, 0.6); /* Adjust this to make the image darker/brighter */
+            z-index: 1;
         }
 
+        /* NAVIGATION BAR */
         .navbar {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 20px 8%;
+            padding: 30px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 100;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(15px);
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .nav-logo-img {
-            height: 40px;
-            width: auto;
-        }
-
         .logo-text {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -89,7 +73,7 @@
 
         .menu {
             display: flex;
-            gap: 35px;
+            gap: 40px;
         }
 
         .menu a {
@@ -105,64 +89,53 @@
             color: #4da6ff;
         }
 
+        /* CENTER CONTENT */
         .content {
             text-align: center;
             z-index: 10;
             padding: 0 20px;
         }
 
-        /* --- STYLED PROFILE IMAGE --- */
-        .hero-profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 20px; /* Modern rounded corners */
-            object-fit: cover;
-            border: 2px solid rgba(77, 166, 255, 0.5);
-            margin-bottom: 25px;
-            box-shadow: 0 0 30px rgba(77, 166, 255, 0.3);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
         .content h1 {
-            font-size: clamp(2.5rem, 8vw, 6rem);
+            font-size: clamp(3rem, 10vw, 7.5rem);
             font-weight: 900;
-            line-height: 1;
-            margin-bottom: 20px;
+            line-height: 0.9;
+            margin-bottom: 25px;
+            text-transform: uppercase;
             background: linear-gradient(to bottom, #fff, #4da6ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 30px rgba(0,0,0,0.5));
         }
 
         .content p {
-            font-size: clamp(1rem, 2vw, 1.3rem);
-            max-width: 650px;
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            max-width: 700px;
             margin: 0 auto;
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.9);
+            letter-spacing: 1px;
+            font-weight: 400;
         }
 
         .btn {
             display: inline-block;
-            margin-top: 40px;
-            padding: 16px 40px;
+            margin-top: 45px;
+            padding: 18px 45px;
             background: #4da6ff;
             color: #fff;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 5px; /* Clean, professional look */
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             transition: 0.4s;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
 
         .btn:hover {
             background: #fff;
             color: #000;
-            transform: scale(1.05);
+            transform: translateY(-3px);
         }
 
     </style>
@@ -170,17 +143,11 @@
 <body>
 
     <section class="hero">
-        <video autoplay muted loop playsinline>
-            <source src="assets/video.mp4" type="video/mp4">
-        </video>
-
+        
         <div class="overlay"></div>
 
         <nav class="navbar">
-            <div class="logo-container">
-                <img src="logo.png" alt="Logo" class="nav-logo-img">
-                <span class="logo-text">CASANET</span>
-            </div>
+            <div class="logo-text">CASANET</div>
             <div class="menu">
                 <a href="index.html">Home</a>
                 <a href="blog.html">Blog</a>
@@ -190,13 +157,11 @@
         </nav>
 
         <div class="content">
-            <!-- Using the image.png found in your GitHub -->
-            <img src="image.png" alt="Featured" class="hero-profile-img">
-            
-            <h1>INNOVATION &<br>STRATÉGIE</h1>
-            <p>Expertise en marketing digital et analyse de données pour transformer votre vision en résultats concrets.</p>
-            <a href="blog.html" class="btn">Accéder au Blog</a>
+            <h1>DATA &<br>STRATÉGIE</h1>
+            <p>Solutions digitales innovantes pour transformer vos données en performance réelle.</p>
+            <a href="blog.html" class="btn">Découvrir le Blog</a>
         </div>
+
     </section>
 
 </body>
