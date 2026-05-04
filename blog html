@@ -3,210 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | Data & AI Insights</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    
+    <title>Article | Data & AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #4da6ff;
-            --bg: #0a0b10;
-            --card-bg: #161b22;
-            --text-white: #ffffff;
-            --text-gray: #a1a1a1;
-        }
+        :root { --dark-blue: #0f172a; --primary: #4da6ff; --light-gray: #f8fafc; --text-main: #334155; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: white; color: var(--text-main); line-height: 1.8; }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
-
-        body {
-            background-color: var(--bg);
-            color: var(--text-white);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* NAVBAR */
-        .navbar {
-            padding: 20px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(10, 11, 16, 0.98);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .logo {
-            font-size: 22px;
-            font-weight: 900;
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 25px;
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            transition: 0.3s;
-        }
-
-        nav a:hover { color: var(--primary); }
-
-        /* HEADER */
-        .blog-header {
-            text-align: center;
-            padding: 100px 20px;
-            background: linear-gradient(to bottom, #111827, #0a0b10);
-        }
-
-        .blog-header h1 {
-            font-size: 3.5rem;
-            font-weight: 900;
-            margin-bottom: 10px;
-            letter-spacing: -1px;
-        }
-
-        .subtitle {
-            color: var(--text-gray);
-            font-size: 1.2rem;
-        }
-
-        /* GRID SYSTEM */
-        .blog-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 50px 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        /* ARTICLE CARD */
-        .article {
-            background: var(--card-bg);
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: 0.3s;
-        }
-
-        .article:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-            box-shadow: 0 10px 30px rgba(77, 166, 255, 0.1);
-        }
-
-        .article img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            background: #222; /* Fallback if image fails */
-        }
-
-        .article-content { padding: 25px; }
-
-        .article h2 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-
-        .article p {
-            color: var(--text-gray);
-            font-size: 0.95rem;
-            margin-bottom: 15px;
-        }
-
-        .article ul {
-            list-style: none;
-            color: var(--text-gray);
-            font-size: 0.9rem;
-        }
-
-        .article li::before {
-            content: "→ ";
-            color: var(--primary);
-        }
-
-        /* QUOTE */
-        .quote-container {
-            grid-column: 1 / -1;
-            background: #1e293b;
-            padding: 50px;
-            border-radius: 15px;
-            text-align: center;
-            border: 1px dashed var(--primary);
-        }
-
-        .quote {
-            font-size: 1.5rem;
-            font-style: italic;
-            color: white;
-        }
+        .navbar { padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; }
+        .logo { font-weight: 800; color: var(--dark-blue); text-decoration: none; font-size: 1.2rem; }
+        
+        .article-container { max-width: 800px; margin: 60px auto; padding: 0 20px; }
+        .back-link { display: inline-block; margin-bottom: 30px; color: var(--primary); text-decoration: none; font-weight: 600; }
+        
+        h1 { font-size: 2.5rem; color: var(--dark-blue); line-height: 1.2; margin-bottom: 30px; }
+        .intro { font-size: 1.2rem; color: #64748b; margin-bottom: 40px; font-weight: 300; }
+        
+        .content { font-size: 1.1rem; }
+        .content p { margin-bottom: 20px; }
+        
+        .footer-cta { background: var(--light-gray); padding: 40px; border-radius: 12px; margin-top: 60px; text-align: center; }
+        .footer-cta h3 { color: var(--dark-blue); margin-bottom: 10px; }
     </style>
 </head>
 <body>
 
-    <header class="navbar">
+    <nav class="navbar">
         <a href="index.html" class="logo">DATA & AI</a>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
+        <a href="blog.html" style="text-decoration: none; color: var(--dark-blue); font-weight: 600;">← Retour au blog</a>
+    </nav>
 
-    <section class="blog-header">
-        <h1>Blog Insights</h1>
-        <p class="subtitle">Exploring the future of technology and data.</p>
-    </section>
-
-    <main class="blog-container">
-        <article class="article">
-            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80" alt="AI">
-            <div class="article-content">
-                <h2>L'Avantage Décisionnel</h2>
-                <p>Transformer la donnée brute en intelligence stratégique pour dominer votre marché.</p>
-                <ul>
-                    <li>Analyse prédictive</li>
-                    <li>Optimisation des flux</li>
-                </ul>
-            </div>
-        </article>
-
-        <article class="article">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Data">
-            <div class="article-content">
-                <h2>Marketing & IA</h2>
-                <p>Comment les algorithmes redéfinissent la relation client en 2026.</p>
-            </div>
-        </article>
-
-        <article class="article">
-            <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=800&q=80" alt="Code">
-            <div class="article-content">
-                <h2>Compétences Clés</h2>
-                <p>Les langages et outils indispensables :</p>
-                <ul>
-                    <li>Python & SQL</li>
-                    <li>Power BI</li>
-                </ul>
-            </div>
-        </article>
-
-        <div class="quote-container">
-            <p class="quote">“La donnée seule ne vaut rien. Sa valeur naît lorsqu’elle guide une décision.”</p>
+    <article class="article-container">
+        <a href="blog.html" class="back-link">← Articles</a>
+        
+        <!-- MODIFIER ICI POUR CHAQUE ARTICLE -->
+        <h1>Data & AI : transformer la donnée en avantage décisionnel</h1>
+        
+        <p class="intro">Aujourd’hui, les entreprises génèrent une grande quantité de données. Pourtant, sans organisation, ces données restent inutiles.</p>
+        
+        <div class="content">
+            <p>La Data et l’IA permettent de transformer ces informations en décisions stratégiques. En structurant les données, les entreprises peuvent mieux comprendre leurs clients, anticiper les tendances et améliorer leurs performances.</p>
+            
+            <p>Une bonne gestion des données permet de prendre des décisions plus rapides et plus efficaces. L'automatisation via l'IA libère du temps pour l'innovation.</p>
         </div>
-    </main>
+
+        <div class="footer-cta">
+            <h3>Envie d'aller plus loin ?</h3>
+            <p>Contactez-nous pour découvrir comment nous pouvons optimiser vos données.</p>
+        </div>
+    </article>
 
 </body>
 </html>
