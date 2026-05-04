@@ -19,10 +19,9 @@
             height: 100%;
             background-color: #000;
             color: white;
-            overflow: hidden; /* Keeps it clean and full-screen */
+            overflow: hidden; 
         }
 
-        /* THE HERO CONTAINER */
         .hero {
             position: relative;
             width: 100%;
@@ -32,7 +31,6 @@
             justify-content: center;
         }
 
-        /* FULL SCREEN VIDEO BACKGROUND */
         .hero video {
             position: absolute;
             top: 50%;
@@ -46,7 +44,6 @@
             object-fit: cover;
         }
 
-        /* LAYERED OVERLAY FOR BETTER CONTRAST */
         .overlay {
             position: absolute;
             top: 0;
@@ -57,23 +54,33 @@
             z-index: -1;
         }
 
-        /* NAVIGATION BAR */
         .navbar {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 30px 8%;
+            padding: 20px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 100;
             background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px); /* Modern blurry effect */
+            backdrop-filter: blur(15px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .logo {
-            font-size: 24px;
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-logo-img {
+            height: 40px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 22px;
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -82,7 +89,7 @@
 
         .menu {
             display: flex;
-            gap: 40px;
+            gap: 35px;
         }
 
         .menu a {
@@ -92,60 +99,70 @@
             font-size: 14px;
             text-transform: uppercase;
             transition: 0.3s;
-            letter-spacing: 1px;
         }
 
         .menu a:hover {
             color: #4da6ff;
         }
 
-        /* HERO CONTENT */
         .content {
             text-align: center;
             z-index: 10;
             padding: 0 20px;
         }
 
+        /* --- STYLED PROFILE IMAGE --- */
+        .hero-profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 20px; /* Modern rounded corners */
+            object-fit: cover;
+            border: 2px solid rgba(77, 166, 255, 0.5);
+            margin-bottom: 25px;
+            box-shadow: 0 0 30px rgba(77, 166, 255, 0.3);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
         .content h1 {
-            font-size: clamp(3rem, 10vw, 7rem); /* Responsive giant text */
+            font-size: clamp(2.5rem, 8vw, 6rem);
             font-weight: 900;
-            line-height: 0.9;
+            line-height: 1;
             margin-bottom: 20px;
             background: linear-gradient(to bottom, #fff, #4da6ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 20px rgba(77, 166, 255, 0.3));
         }
 
         .content p {
-            font-size: clamp(1rem, 2vw, 1.5rem);
-            max-width: 600px;
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            max-width: 650px;
             margin: 0 auto;
-            color: rgba(255, 255, 255, 0.8);
-            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.7);
         }
 
-        /* MODERN BUTTON */
         .btn {
             display: inline-block;
             margin-top: 40px;
-            padding: 18px 45px;
+            padding: 16px 40px;
             background: #4da6ff;
             color: #fff;
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 8px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: all 0.4s ease;
-            box-shadow: 0 10px 30px rgba(77, 166, 255, 0.4);
+            letter-spacing: 1px;
+            transition: 0.4s;
         }
 
         .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(77, 166, 255, 0.6);
             background: #fff;
             color: #000;
+            transform: scale(1.05);
         }
 
     </style>
@@ -160,19 +177,25 @@
         <div class="overlay"></div>
 
         <nav class="navbar">
-            <div class="logo">DATA & AI</div>
+            <div class="logo-container">
+                <img src="logo.png" alt="Logo" class="nav-logo-img">
+                <span class="logo-text">CASANET</span>
+            </div>
             <div class="menu">
-                <a href="#">Home</a>
+                <a href="index.html">Home</a>
                 <a href="blog.html">Blog</a>
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
+                <a href="About.html">About</a>
+                <a href="Contact.html">Contact</a>
             </div>
         </nav>
 
         <div class="content">
-            <h1>FUTURE OF<br>INTELLIGENCE</h1>
-            <p>Transforming complex data into decisive advantages through advanced AI modeling.</p>
-            <a href="blog.html" class="btn">Explore the Blog</a>
+            <!-- Using the image.png found in your GitHub -->
+            <img src="image.png" alt="Featured" class="hero-profile-img">
+            
+            <h1>INNOVATION &<br>STRATÉGIE</h1>
+            <p>Expertise en marketing digital et analyse de données pour transformer votre vision en résultats concrets.</p>
+            <a href="blog.html" class="btn">Accéder au Blog</a>
         </div>
     </section>
 
