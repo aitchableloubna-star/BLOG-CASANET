@@ -26,7 +26,7 @@
             line-height: 1.6;
         }
 
-        /* NAVIGATION AVEC LOGO */
+        /* NAVIGATION AVEC LOGO FIXÉ */
         .nav {
             padding: 15px 8%;
             display: flex;
@@ -43,15 +43,16 @@
         .logo-container {
             display: flex;
             align-items: center;
+            text-decoration: none;
         }
 
-        /* Supprime le fond blanc de l'image du logo automatiquement */
         .logo-img {
-            height: 45px; 
+            height: 50px; /* Taille ajustée */
             width: auto;
-            mix-blend-mode: screen; /* Rend le fond noir transparent */
-            /* Si votre fond est blanc, utilisez : mix-blend-mode: multiply; */
-            filter: brightness(1.2);
+            display: block;
+            /* Supprime le fond blanc du JPG pour le fond sombre */
+            mix-blend-mode: multiply; 
+            filter: brightness(1.1) contrast(1.1);
         }
 
         .nav-links { display: flex; gap: 30px; }
@@ -147,8 +148,8 @@
 
     <nav class="nav">
         <a href="index.html" class="logo-container">
-            <!-- REMPLACEZ 'votre_logo.png' PAR LE NOM DE VOTRE FICHIER LOGO -->
-            <img src="votre_logo.png" alt="Casanet Logo" class="logo-img">
+            <!-- Fichier image_9b1d74.jpg configuré -->
+            <img src="image_9b1d74.jpg" alt="Casanet" class="logo-img">
         </a>
         <div class="nav-links">
             <a href="index.html">Home</a>
