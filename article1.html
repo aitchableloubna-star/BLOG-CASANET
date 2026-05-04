@@ -3,38 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Article 1 | Data & AI</title>
+    <title>Data & AI | Article 1</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;900&display=swap" rel="stylesheet">
     <style>
-        :root { --dark-bg: #0f172a; --accent-blue: #4da6ff; --text-bright: #f8fafc; --text-dim: #94a3b8; }
+        :root { --dark-bg: #0f172a; --card-gray: rgba(30, 41, 59, 0.8); --accent-blue: #4da6ff; --text-bright: #f8fafc; --text-dim: #94a3b8; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         body { 
-            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('article1.jpg');
-            background-size: cover; background-position: center; background-attachment: fixed;
-            color: var(--text-bright); line-height: 1.8; 
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('image_a9345f.jpg');
+            background-size: cover; background-attachment: fixed; background-position: center; color: var(--text-bright); line-height: 1.8;
         }
-        .navbar { padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(10px); }
+        .navbar { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(15px); padding: 20px 8%; border-bottom: 1px solid rgba(255, 255, 255, 0.1); position: sticky; top: 0; z-index: 1000; }
         .logo { font-weight: 900; color: var(--accent-blue); text-decoration: none; font-size: 1.2rem; }
-        .article-container { max-width: 800px; margin: 60px auto; padding: 40px; background: rgba(30, 41, 59, 0.5); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(15px); }
-        .back-link { display: inline-block; margin-bottom: 30px; color: var(--accent-blue); text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
-        h1 { font-size: 2.5rem; color: white; line-height: 1.2; margin-bottom: 30px; font-weight: 900; }
-        .intro { font-size: 1.2rem; color: var(--accent-blue); margin-bottom: 40px; font-weight: 400; }
-        .content p { margin-bottom: 25px; color: var(--text-bright); font-size: 1.1rem; }
+        .container { max-width: 850px; margin: 60px auto; padding: 0 25px; }
+        .back-link { color: var(--accent-blue); text-decoration: none; font-weight: 600; display: inline-block; margin-bottom: 20px; transition: 0.3s; }
+        .back-link:hover { color: white; }
+        .article-card { background: var(--card-gray); backdrop-filter: blur(10px); padding: 45px; border-radius: 24px; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+        .article-img { width: 100%; height: 400px; object-fit: cover; border-radius: 15px; margin-bottom: 35px; border: 1px solid rgba(77, 166, 255, 0.2); }
+        h1 { font-size: 2.8rem; margin-bottom: 25px; line-height: 1.2; background: linear-gradient(to bottom, #fff, var(--accent-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .content { color: var(--text-dim); font-size: 1.15rem; }
+        .content p { margin-bottom: 20px; }
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <a href="index.html" class="logo">DATA & AI</a>
-        <a href="blog.html" style="text-decoration: none; color: white; font-weight: 600; font-size: 0.9rem;">← RETOUR</a>
-    </nav>
-    <article class="article-container">
-        <a href="blog.html" class="back-link">← Retour aux articles</a>
-        <h1>Data & AI : transformer la donnée en avantage décisionnel</h1>
-        <p class="intro">Aujourd’hui, les entreprises génèrent une grande quantité de données. Pourtant, sans organisation, ces données restent inutiles.</p>
-        <div class="content">
-            <p>La Data et l’IA permettent de transformer ces informations en décisions stratégiques. En structurant les données, les entreprises peuvent mieux comprendre leurs clients, anticiper les tendances et améliorer leurs performances.</p>
-            <p>Une bonne gestion des données permet de prendre des décisions plus rapides et plus efficaces. L'automatisation via l'IA libère du temps pour l'innovation stratégique.</p>
-        </div>
-    </article>
+    <nav class="navbar"><a href="index.html" class="logo">DATA & AI</a></nav>
+    <div class="container">
+        <a href="blog.html" class="back-link">← Retour au Blog</a>
+        <article class="article-card">
+            <img src="article1.jpg" alt="Data Strategy" class="article-img">
+            <h1>Data & AI : transformer la donnée en avantage décisionnel</h1>
+            <div class="content">
+                <p>Aujourd’hui, les entreprises génèrent une grande quantité de données. Pourtant, sans organisation, ces données restent inutiles.</p>
+                <p>La Data et l’IA permettent de transformer ces informations en décisions stratégiques. En structurant les données, les entreprises peuvent mieux comprendre leurs clients, anticiper les tendances et améliorer leurs performances.</p>
+                <p>Une bonne gestion des données permet de prendre des décisions plus rapides et plus efficaces.</p>
+            </div>
+        </article>
+    </div>
 </body>
 </html>
