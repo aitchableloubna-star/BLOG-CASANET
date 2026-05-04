@@ -4,61 +4,137 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Data & AI | CASANET</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --dark-blue: #0f172a;
-            --primary: #4da6ff;
-            --light-gray: #f8fafc;
-            --text-main: #1e293b;
+            --dark-bg: #0f172a;
+            --card-gray: rgba(30, 41, 59, 0.7);
+            --accent-blue: #4da6ff;
+            --text-bright: #f8fafc;
+            --text-dim: #94a3b8;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: var(--light-gray); color: var(--text-main); line-height: 1.6; }
 
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-bright);
+            min-height: 100vh;
+            /* Using your specific image for the background */
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
+                        url('image_a9345f.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Navigation */
         .navbar {
-            background: white;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(15px);
             padding: 20px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             position: sticky;
-            top: 0; z-index: 1000;
+            top: 0;
+            z-index: 1000;
         }
-        .logo { font-weight: 800; color: var(--dark-blue); font-size: 1.5rem; text-decoration: none; }
-        nav a { text-decoration: none; color: var(--text-main); margin-left: 20px; font-weight: 600; font-size: 0.9rem; }
 
-        .header { text-align: center; padding: 80px 20px; background: white; border-bottom: 1px solid #e2e8f0; }
-        .header h1 { font-size: 2.5rem; color: var(--dark-blue); margin-bottom: 10px; }
+        .logo { font-weight: 900; color: var(--accent-blue); font-size: 1.5rem; text-decoration: none; letter-spacing: 1px; }
+        nav a { text-decoration: none; color: var(--text-bright); margin-left: 25px; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
+        nav a:hover, nav a.active { color: var(--accent-blue); }
 
-        .container { max-width: 1100px; margin: 50px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        /* Header Section */
+        .header {
+            text-align: center;
+            padding: 100px 20px 60px;
+        }
+
+        .header h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 15px;
+            background: linear-gradient(to bottom, #fff, var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header p {
+            color: var(--text-dim);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Blog Grid */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
 
         .card {
-            background: white;
-            border-radius: 12px;
-            padding: 30px;
-            border: 1px solid #e2e8f0;
-            transition: 0.3s;
+            background: var(--card-gray);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
             flex-direction: column;
         }
-        .card:hover { transform: translateY(-5px); border-color: var(--primary); }
-        .card h2 { font-size: 1.2rem; color: var(--dark-blue); margin-bottom: 15px; }
-        .card p { color: #64748b; font-size: 0.9rem; margin-bottom: 20px; flex-grow: 1; }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-blue);
+            background: rgba(30, 41, 59, 0.9);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .card h2 {
+            font-size: 1.4rem;
+            color: white;
+            margin-bottom: 18px;
+            line-height: 1.3;
+        }
+
+        .card p {
+            color: var(--text-dim);
+            font-size: 1rem;
+            margin-bottom: 30px;
+            flex-grow: 1;
+            line-height: 1.6;
+        }
 
         .btn {
             display: inline-block;
             text-decoration: none;
-            background: var(--dark-blue);
-            color: white;
-            padding: 12px;
-            border-radius: 6px;
-            font-weight: 600;
-            text-align: center;
+            background: transparent;
+            color: var(--accent-blue);
+            padding: 12px 0;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             transition: 0.3s;
+            border-bottom: 2px solid transparent;
+            align-self: flex-start;
         }
-        .btn:hover { background: var(--primary); }
+
+        .btn:hover {
+            color: white;
+            border-bottom: 2px solid var(--accent-blue);
+        }
+
+        @media (max-width: 768px) {
+            .header { padding: 60px 20px; }
+            .container { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -67,44 +143,40 @@
         <a href="index.html" class="logo">DATA & AI</a>
         <nav>
             <a href="index.html">Home</a>
-            <a href="blog.html" style="color: var(--primary);">Blog</a>
+            <a href="blog.html" class="active">Blog</a>
             <a href="About.html">About</a>
             <a href="Contact.html">Contact</a>
         </nav>
     </nav>
 
     <header class="header">
-        <h1>Blog Data & AI</h1>
-        <p>Insights et stratégies pour le marketing digital et l'IA.</p>
+        <h1>Blog Insights</h1>
+        <p>Stratégies digitales et analyses de données pour l'ère de l'intelligence artificielle.</p>
     </header>
 
     <main class="container">
-        <!-- Article 1 -->
         <article class="card">
             <h2>Data & AI : transformer la donnée en avantage décisionnel</h2>
-            <p>Découvrez comment structurer vos données pour améliorer vos décisions stratégiques.</p>
-            <a href="article1.html" class="btn">👉 Lire plus</a>
+            <p>Apprenez à structurer vos données pour optimiser vos décisions stratégiques et booster votre croissance.</p>
+            <a href="article1.html" class="btn">Lire plus</a>
         </article>
 
-        <!-- Article 2 -->
         <article class="card">
             <h2>Pourquoi la data est devenue essentielle ?</h2>
-            <p>Comprenez pourquoi la donnée est au cœur de la performance des organisations.</p>
-            <a href="article2.html" class="btn">👉 Lire plus</a>
+            <p>Plongez dans les raisons pour lesquelles la donnée est devenue le carburant principal des entreprises modernes.</p>
+            <a href="article2.html" class="btn">Lire plus</a>
         </article>
 
-        <!-- Article 3 -->
         <article class="card">
             <h2>L'IA et la prise de décision</h2>
-            <p>Explorez le rôle de l'intelligence artificielle dans l'automatisation des décisions.</p>
-            <a href="article3.html" class="btn">👉 Lire plus</a>
+            <p>Découvrez comment les algorithmes d'IA automatisent les choix complexes pour gagner en précision.</p>
+            <a href="article3.html" class="btn">Lire plus</a>
         </article>
 
-        <!-- Article 4 -->
         <article class="card">
             <h2>Erreurs à éviter en gestion de données</h2>
-            <p>Identifiez les erreurs fréquentes pour améliorer la qualité de vos analyses.</p>
-            <a href="article4.html" class="btn">👉 Lire plus</a>
+            <p>Évitez les pièges courants de la centralisation et du nettoyage de données pour sécuriser vos analyses.</p>
+            <a href="article4.html" class="btn">Lire plus</a>
         </article>
     </main>
 
