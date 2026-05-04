@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erreurs de gestion Data | CASANET Blog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --dark-blue: #0f172a; --primary: #4da6ff; --light-gray: #f8fafc; --text-main: #334155; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: white; color: var(--text-main); line-height: 1.8; }
+        .navbar { padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; }
+        .logo { font-weight: 800; color: var(--dark-blue); text-decoration: none; font-size: 1.2rem; }
+        .article-container { max-width: 800px; margin: 60px auto; padding: 0 20px; }
+        .back-link { display: inline-block; margin-bottom: 30px; color: var(--primary); text-decoration: none; font-weight: 600; }
+        h1 { font-size: 2.5rem; color: var(--dark-blue); line-height: 1.2; margin-bottom: 30px; }
+        .intro { font-size: 1.2rem; color: #64748b; margin-bottom: 40px; font-weight: 300; }
+        .content { font-size: 1.1rem; }
+        .content p { margin-bottom: 20px; }
+        .footer-cta { background: var(--light-gray); padding: 40px; border-radius: 12px; margin-top: 60px; text-align: center; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">DATA & AI</a>
+        <a href="blog.html" style="text-decoration: none; color: var(--dark-blue); font-weight: 600;">← Retour au blog</a>
+    </nav>
+    <article class="article-container">
+        <a href="blog.html" class="back-link">← Articles</a>
+        <h1>Les erreurs à éviter dans la gestion des données</h1>
+        <p class="intro">Une mauvaise gestion des données peut freiner la performance d'une entreprise et mener à des pertes financières.</p>
+        <div class="content">
+            <p>Parmi les erreurs les plus fréquentes, on retrouve : les données non structurées, l’absence de nettoyage régulier et le manque de centralisation des informations.</p>
+            <p>Éviter ces erreurs permet d’améliorer significativement la qualité des décisions et d'optimiser le retour sur investissement de vos projets numériques.</p>
+        </div>
+        <div class="footer-cta">
+            <h3>Audit de vos données</h3>
+            <p>Laissez-nous vous aider à structurer votre patrimoine informationnel.</p>
+        </div>
+    </article>
+</body>
+</html>
