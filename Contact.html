@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Casanet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root { 
+            --bg: #030712;
+            --glass: rgba(15, 23, 42, 0.7);
+            --border: rgba(255, 255, 255, 0.08);
+            --accent: #4da6ff;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+
+        body { 
+            background: radial-gradient(circle at top right, #1e293b, #030712);
+            background-image: linear-gradient(rgba(3, 7, 18, 0.85), rgba(3, 7, 18, 0.85)), url('image_a9345f.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* NAVIGATION */
+        .nav {
+            padding: 15px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(3, 7, 18, 0.6);
+        }
+
+        .logo-container { display: flex; align-items: center; text-decoration: none; }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+            display: block;
+            mix-blend-mode: multiply; 
+            filter: brightness(1.1) contrast(1.1);
+        }
+
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { 
+            color: white; 
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 0.95rem; 
+            transition: 0.3s;
+        }
+        .nav-links a:hover { color: var(--accent); }
+        .nav-links a.active { color: var(--accent); }
+
+        /* HERO SECTION */
+        .hero {
+            padding: 100px 8% 60px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            background: linear-gradient(to bottom, #fff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* CONTACT GRID */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 0 8% 100px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 40px;
+            backdrop-filter: blur(20px);
+            transition: all 0.4s ease;
+        }
+
+        .contact-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            background: rgba(30, 41, 59, 0.5);
+        }
+
+        h2 { color: var(--accent); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
+        h3 { font-size: 1.4rem; margin-bottom: 15px; font-weight: 700; color: #fff; }
+        p { color: var(--text-muted); font-size: 1.05rem; }
+        
+        .contact-link {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+        .contact-link:hover { color: var(--accent); }
+
+        .full-width { grid-column: span 2; text-align: center; border: 1px solid var(--accent); background: linear-gradient(90deg, rgba(77,166,255,0.05), transparent); }
+
+        @media (max-width: 800px) {
+            .grid-container { grid-template-columns: 1fr; }
+            .full-width { grid-column: span 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <a href="index.html" class="logo-container">
+            <img src="image_9b1d74.jpg" alt="Casanet" class="logo-img">
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="blog.html">Blog</a>
+            <a href="About.html">About</a>
+            <a href="Contact.html" class="active">Contact</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h2>Coordonnées</h2>
+        <h1>Contactez Casanet</h1>
+        <p>Pour toute demande d’information, collaboration ou assistance technique, vous pouvez contacter Casanet via les coordonnées ci-dessous.</p>
+    </section>
+
+    <main class="grid-container">
+        
+        <!-- Adresse -->
+        <div class="contact-card">
+            <h2>Adresse</h2>
+            <h3>Siège Social</h3>
+            <p>Av. Annakhil, Immeuble Riad 1, Hay Riad<br>10110 Rabat – Maroc</p>
+        </div>
+
+        <!-- Téléphone -->
+        <div class="contact-card">
+            <h2>Téléphone</h2>
+            <h3>Appelez-nous</h3>
+            <a href="tel:0537548300" class="contact-link">05 37 54 83 00</a>
+        </div>
+
+        <!-- Email -->
+        <div class="contact-card">
+            <h2>Email</h2>
+            <h3>Support & Info</h3>
+            <a href="mailto:contact@casanet.ma" class="contact-link">contact@casanet.ma</a>
+        </div>
+
+        <!-- Web -->
+        <div class="contact-card">
+            <h2>Digital</h2>
+            <h3>Site Web</h3>
+            <a href="https://www.casanet.ma" target="_blank" class="contact-link">www.casanet.ma</a>
+        </div>
+
+        <!-- Footer Card -->
+        <div class="contact-card full-width">
+            <p>Casanet reste à votre écoute pour vous accompagner dans tous vos projets numériques.</p>
+        </div>
+
+    </main>
+
+</body>
+</html>
