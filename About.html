@@ -26,9 +26,9 @@
             line-height: 1.6;
         }
 
-        /* NAVIGATION */
+        /* NAVIGATION AVEC LOGO */
         .nav {
-            padding: 25px 8%;
+            padding: 15px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -37,9 +37,33 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            background: rgba(3, 7, 18, 0.6);
         }
 
-        .logo { font-weight: 800; font-size: 1.4rem; color: var(--accent); text-decoration: none; letter-spacing: -1px; }
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Supprime le fond blanc de l'image du logo automatiquement */
+        .logo-img {
+            height: 45px; 
+            width: auto;
+            mix-blend-mode: screen; /* Rend le fond noir transparent */
+            /* Si votre fond est blanc, utilisez : mix-blend-mode: multiply; */
+            filter: brightness(1.2);
+        }
+
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { 
+            color: white; 
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 0.95rem; 
+            transition: 0.3s;
+        }
+        .nav-links a:hover { color: var(--accent); }
+        .nav-links a.active { color: var(--accent); }
 
         /* HERO SECTION */
         .hero {
@@ -48,27 +72,30 @@
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 800;
-            line-height: 1.1;
+            line-height: 1.2;
             margin-bottom: 20px;
-            letter-spacing: -2px;
+            letter-spacing: -1px;
+            background: linear-gradient(to bottom, #fff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--text-muted);
-            max-width: 700px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
-        /* BENTO GRID LAYOUT */
+        /* BENTO GRID */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
             padding: 0 8% 100px;
-            max-width: 1400px;
+            max-width: 1300px;
             margin: 0 auto;
         }
 
@@ -78,102 +105,96 @@
             border-radius: 24px;
             padding: 35px;
             backdrop-filter: blur(20px);
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            transition: all 0.5s ease;
         }
 
         .bento-item:hover {
             border-color: var(--accent);
             transform: translateY(-5px);
             background: rgba(30, 41, 59, 0.5);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
         .wide { grid-column: span 2; }
         .tall { grid-row: span 2; }
 
-        h2 { color: var(--accent); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; }
-        h3 { font-size: 1.8rem; margin-bottom: 15px; font-weight: 700; }
-        p { color: var(--text-muted); font-size: 1.05rem; }
-
+        h2 { color: var(--accent); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; }
+        h3 { font-size: 1.6rem; margin-bottom: 15px; font-weight: 700; color: #fff; }
+        
         .service-list { list-style: none; margin-top: 20px; }
         .service-list li {
-            padding: 12px 0;
+            padding: 10px 0;
             border-bottom: 1px solid var(--border);
             display: flex;
             align-items: center;
-            transition: 0.3s;
+            color: var(--text-muted);
         }
-        .service-list li:hover { color: var(--accent); padding-left: 10px; }
-        .service-list li::before { content: ""; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; margin-right: 15px; }
+        .service-list li::before { content: "→"; color: var(--accent); margin-right: 12px; font-weight: bold; }
 
-        /* VISION BOX */
         .vision-footer {
             grid-column: span 3;
-            background: linear-gradient(90deg, rgba(77,166,255,0.1), transparent);
+            background: linear-gradient(90deg, rgba(77,166,255,0.05), transparent);
             border: 1px solid var(--accent);
             text-align: center;
         }
 
         @media (max-width: 1024px) {
             .grid-container { grid-template-columns: 1fr; }
-            .wide, .tall { grid-column: span 1; grid-row: span 1; }
-            .vision-footer { grid-column: span 1; }
+            .wide, .tall, .vision-footer { grid-column: span 1; }
         }
     </style>
 </head>
 <body>
 
     <nav class="nav">
-        <a href="index.html" class="logo">DATA & AI</a>
-        <div style="display: flex; gap: 30px;">
-            <a href="index.html" style="color:white; text-decoration:none; font-weight:600;">Home</a>
-            <a href="blog.html" style="color:white; text-decoration:none; font-weight:600;">Blog</a>
-            <a href="About.html" style="color:var(--accent); text-decoration:none; font-weight:600;">About</a>
+        <a href="index.html" class="logo-container">
+            <!-- REMPLACEZ 'votre_logo.png' PAR LE NOM DE VOTRE FICHIER LOGO -->
+            <img src="votre_logo.png" alt="Casanet Logo" class="logo-img">
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="blog.html">Blog</a>
+            <a href="About.html" class="active">About</a>
+            <a href="Contact.html">Contact</a>
         </div>
     </nav>
 
     <section class="hero">
-        <h2>Expertise Digitale</h2>
-        <h1>L'innovation au cœur de Maroc Telecom.</h1>
-        <p>Découvrez comment Casanet propulse la transformation technologique des entreprises à travers le continent.</p>
+        <h2>Expertise & Innovation</h2>
+        <h1>À propos de Casanet – Filiale de Maroc Telecom</h1>
+        <p>Accompagner les entreprises dans leur transformation technologique avec l'expertise du leader historique des télécoms au Maroc.</p>
     </section>
 
     <main class="grid-container">
         
-        <!-- Introduction -->
         <div class="bento-item wide">
-            <h3>À propos de Casanet</h3>
-            <p>Filiale stratégique du groupe Maroc Telecom, Casanet est le pilier des services numériques. Nous accompagnons les organisations dans leur mutation technologique pour bâtir un futur connecté et performant.</p>
+            <h3>Présentation de la filiale</h3>
+            <p>Casanet est une filiale du groupe Maroc Telecom spécialisée dans les services numériques et les technologies de l’information. Elle joue un rôle clé dans le développement digital au Maroc en accompagnant les entreprises publiques et privées.</p>
         </div>
 
-        <!-- Mission -->
         <div class="bento-item">
             <h3>Notre Mission</h3>
-            <p>Offrir des solutions IT fiables, sécurisées et innovantes pour garantir la souveraineté numérique de nos partenaires.</p>
+            <p>Offrir des solutions fiables, sécurisées et innovantes adaptées aux besoins spécifiques de chaque organisation marocaine.</p>
         </div>
 
-        <!-- Services (Tall Box) -->
         <div class="bento-item tall">
-            <h3>Domaines d'activité</h3>
+            <h3>Domaines d’activité</h3>
             <ul class="service-list">
-                <li>Solutions Internet & Réseaux</li>
-                <li>Hébergement Cloud</li>
-                <li>Intégration de Systèmes</li>
-                <li>Transformation Numérique</li>
-                <li>Infrastructure IT</li>
+                <li>Solutions Internet et réseaux</li>
+                <li>Hébergement web et cloud</li>
+                <li>Intégration de systèmes</li>
+                <li>Services digitaux</li>
+                <li>Infrastructures IT</li>
             </ul>
         </div>
 
-        <!-- Présentation -->
         <div class="bento-item wide">
             <h3>Expertise IT</h3>
-            <p>Spécialiste des services innovants, Casanet intervient auprès des secteurs publics et privés pour maximiser leur présence digitale et optimiser leurs infrastructures critiques.</p>
+            <p>En tant qu'expert en solutions IT, Casanet propose des services innovants visant à améliorer la performance globale et la présence digitale des acteurs économiques.</p>
         </div>
 
-        <!-- Vision & Importance -->
         <div class="bento-item vision-footer">
-            <h3>Vision & Impact</h3>
-            <p>Devenir l'acteur majeur de l'innovation digitale en Afrique et moderniser durablement le paysage numérique marocain.</p>
+            <h3>Vision & Importance</h3>
+            <p>Aspire à renforcer la position du Maroc dans le domaine numérique et contribue fortement à la modernisation du secteur en devenant un acteur majeur de l’innovation en Afrique.</p>
         </div>
 
     </main>
