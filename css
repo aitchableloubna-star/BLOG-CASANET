@@ -99,7 +99,24 @@ nav a:hover {
     background: rgba(30, 41, 59, 0.95);
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 20px rgba(77, 166, 255, 0.2);
 }
+.logo-img {
+    height: 55px; /* Ajuste la hauteur selon tes besoins */
+    width: auto;
+    display: block;
+    
+    /* Supprime le fond blanc si l'image en a un */
+    mix-blend-mode: multiply; 
+    
+    /* Si le fond de ton image est noir, utilise 'screen' à la place de 'multiply' */
+    /* mix-blend-mode: screen; */
+    
+    filter: contrast(1.1) brightness(1.1);
+    transition: transform 0.3s ease;
+}
 
+.logo-img:hover {
+    transform: scale(1.05);
+}
 /* DESIGN DE L'IMAGE DANS L'ARTICLE */
 .article-img {
     width: 100%;
