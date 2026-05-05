@@ -30,7 +30,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            /* Using your image.png as the big background */
             background-image: url('image.png');
             background-size: cover;
             background-position: center;
@@ -44,7 +43,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6); /* Adjust this to make the image darker/brighter */
+            background: rgba(0, 0, 0, 0.6);
             z-index: 1;
         }
 
@@ -53,7 +52,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 30px 8%;
+            padding: 20px 8%; /* Réduit légèrement pour mieux cadrer le logo */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -63,12 +62,21 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .logo-text {
-            font-size: 24px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #4da6ff;
+        /* STYLE DU LOGO DANS LE COIN */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 50px; /* Taille optimale pour le coin de la page */
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.05);
         }
 
         .menu {
@@ -124,7 +132,7 @@
             background: #4da6ff;
             color: #fff;
             text-decoration: none;
-            border-radius: 5px; /* Clean, professional look */
+            border-radius: 5px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -147,7 +155,11 @@
         <div class="overlay"></div>
 
         <nav class="navbar">
-            <div class="logo-text">CASANET</div>
+            <!-- Remplacement du texte par le logo image -->
+            <a href="index.html" class="logo-container">
+                <img src="image_9b1d74.jpg" alt="Logo Casanet" class="logo-img">
+            </a>
+            
             <div class="menu">
                 <a href="index.html">Home</a>
                 <a href="blog.html">Blog</a>
