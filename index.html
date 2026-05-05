@@ -22,7 +22,7 @@
             overflow: hidden; 
         }
 
-        /* FULL SCREEN BACKGROUND IMAGE */
+        /* IMAGE DE FOND */
         .hero {
             position: relative;
             width: 100%;
@@ -36,7 +36,6 @@
             background-repeat: no-repeat;
         }
 
-        /* DARK OVERLAY TO MAKE TEXT POP */
         .overlay {
             position: absolute;
             top: 0;
@@ -47,12 +46,12 @@
             z-index: 1;
         }
 
-        /* NAVIGATION BAR */
+        /* NAVIGATION */
         .navbar {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 20px 8%; /* Réduit légèrement pour mieux cadrer le logo */
+            padding: 15px 8%; 
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -62,7 +61,7 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* STYLE DU LOGO DANS LE COIN */
+        /* LOGO DANS LE COIN - SANS FOND */
         .logo-container {
             display: flex;
             align-items: center;
@@ -70,8 +69,11 @@
         }
 
         .logo-img {
-            height: 50px; /* Taille optimale pour le coin de la page */
+            height: 65px; /* Taille plus grande pour un impact visuel */
             width: auto;
+            /* Rend le fond blanc de l'image transparent pour s'intégrer au design noir */
+            mix-blend-mode: screen; 
+            filter: brightness(1.2);
             transition: transform 0.3s ease;
         }
 
@@ -97,7 +99,7 @@
             color: #4da6ff;
         }
 
-        /* CENTER CONTENT */
+        /* CONTENU CENTRAL */
         .content {
             text-align: center;
             z-index: 10;
@@ -155,9 +157,9 @@
         <div class="overlay"></div>
 
         <nav class="navbar">
-            <!-- Remplacement du texte par le logo image -->
             <a href="index.html" class="logo-container">
-                <img src="image_9b1d74.jpg" alt="Logo Casanet" class="logo-img">
+                <!-- Utilisation de l'image spécifiée -->
+                <img src="image_9b1d74.jpg" alt="Casanet Logo" class="logo-img">
             </a>
             
             <div class="menu">
