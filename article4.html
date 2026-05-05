@@ -121,32 +121,25 @@
 
         .content ul {
             margin-bottom: 25px;
-            padding-left: 20px;
+            padding-left: 5px;
             list-style: none;
         }
 
         .content ul li {
             position: relative;
             margin-bottom: 12px;
-            padding-left: 30px;
+            padding-left: 25px;
         }
 
-        /* Croix pour les erreurs */
+        /* Flèches bleues pour toutes les listes */
         .content ul li::before {
-            content: "×";
+            content: "→";
             position: absolute;
             left: 0;
-            color: #ff4d4d;
+            color: var(--accent-blue);
             font-weight: bold;
-            font-size: 1.4rem;
-            line-height: 1;
-        }
-
-        /* Coche pour les solutions */
-        .content ul.check li::before {
-            content: "✓";
-            color: #4dff88;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            line-height: 1.6;
         }
 
         .highlight-box {
@@ -196,7 +189,7 @@
                 
                 <h2>Mettre en place une gouvernance efficace</h2>
                 <p>Pour éviter ces risques, il est essentiel d'instaurer une gouvernance des données rigoureuse. Cela passe par :</p>
-                <ul class="check">
+                <ul>
                     <li>La définition de règles claires de gestion et de stockage</li>
                     <li>L'utilisation d'outils adaptés à l'échelle de l'entreprise</li>
                     <li>Une sécurisation renforcée des informations sensibles</li>
@@ -206,7 +199,7 @@
 
                 <h2>L'expertise locale de Casanet</h2>
                 <p>Casanet complète cette approche technologique en proposant une proximité unique :</p>
-                <ul class="check">
+                <ul>
                     <li>Des services d'hébergement hautement sécurisés au Maroc</li>
                     <li>Une infrastructure fiable pour garantir la continuité</li>
                     <li>Une expertise locale adaptée aux enjeux des entreprises marocaines</li>
