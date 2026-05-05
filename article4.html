@@ -65,8 +65,21 @@
             text-decoration: none; 
             font-weight: 600; 
             display: inline-block; 
+            padding-left: 15px;
+            position: relative;
             margin-bottom: 20px; 
             transition: 0.3s; 
+        }
+        .back-link::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 8px;
+            height: 8px;
+            border-left: 2px solid var(--accent-blue);
+            border-bottom: 2px solid var(--accent-blue);
+            transform: translateY(-50%) rotate(45deg);
         }
         .back-link:hover { color: white; }
 
@@ -114,30 +127,35 @@
 
         .content ul li {
             position: relative;
-            margin-bottom: 10px;
-            padding-left: 25px;
+            margin-bottom: 12px;
+            padding-left: 30px;
         }
 
+        /* Croix pour les erreurs */
         .content ul li::before {
             content: "×";
             position: absolute;
             left: 0;
             color: #ff4d4d;
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
+            line-height: 1;
         }
 
+        /* Coche pour les solutions */
         .content ul.check li::before {
             content: "✓";
             color: #4dff88;
+            font-size: 1.1rem;
         }
 
         .highlight-box {
             margin-top: 30px;
-            padding: 20px;
+            padding: 25px;
             border-left: 4px solid var(--accent-blue);
             background: rgba(77, 166, 255, 0.05);
             color: var(--text-bright);
+            border-radius: 0 12px 12px 0;
         }
     </style>
 </head>
@@ -159,7 +177,7 @@
         <a href="blog.html" class="back-link">Retour au Blog</a>
         
         <article class="article-card">
-            <img src="article4.jpg" alt="Erreurs gestion données" class="article-img">
+            <img src="article4.jpg" alt="Gestion des risques de données" class="article-img">
             
             <h1>Les erreurs à éviter dans la gestion des données</h1>
             
@@ -180,7 +198,7 @@
                 <p>Pour éviter ces risques, il est essentiel d'instaurer une gouvernance des données rigoureuse. Cela passe par :</p>
                 <ul class="check">
                     <li>La définition de règles claires de gestion et de stockage</li>
-                    <li>L'utilisation d' outils adaptés à l'échelle de l'entreprise</li>
+                    <li>L'utilisation d'outils adaptés à l'échelle de l'entreprise</li>
                     <li>Une sécurisation renforcée des informations sensibles</li>
                 </ul>
 
@@ -189,13 +207,13 @@
                 <h2>L'expertise locale de Casanet</h2>
                 <p>Casanet complète cette approche technologique en proposant une proximité unique :</p>
                 <ul class="check">
-                    <li>Des services d’hébergement hautement sécurisés au Maroc</li>
+                    <li>Des services d'hébergement hautement sécurisés au Maroc</li>
                     <li>Une infrastructure fiable pour garantir la continuité</li>
                     <li>Une expertise locale adaptée aux enjeux des entreprises marocaines</li>
                 </ul>
 
                 <div class="highlight-box">
-                    Une bonne gestion des données permet d’assurer la fiabilité des analyses et d’améliorer directement la qualité des décisions stratégiques.
+                    Une bonne gestion des données permet d'assurer la fiabilité des analyses et d'améliorer directement la qualité des décisions stratégiques.
                 </div>
             </div>
         </article>
