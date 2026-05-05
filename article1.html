@@ -6,37 +6,176 @@
     <title>Data & AI | Article 1</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;900&display=swap" rel="stylesheet">
     <style>
-        :root { --dark-bg: #0f172a; --card-gray: rgba(30, 41, 59, 0.8); --accent-blue: #4da6ff; --text-bright: #f8fafc; --text-dim: #94a3b8; }
+        :root { 
+            --dark-bg: #0f172a; 
+            --card-gray: rgba(30, 41, 59, 0.8); 
+            --accent-blue: #4da6ff; 
+            --text-bright: #f8fafc; 
+            --text-dim: #94a3b8; 
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        
         body { 
             background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('image_a9345f.jpg');
-            background-size: cover; background-attachment: fixed; background-position: center; color: var(--text-bright); line-height: 1.8;
+            background-size: cover; 
+            background-attachment: fixed; 
+            background-position: center; 
+            color: var(--text-bright); 
+            line-height: 1.8;
         }
-        .navbar { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(15px); padding: 20px 8%; border-bottom: 1px solid rgba(255, 255, 255, 0.1); position: sticky; top: 0; z-index: 1000; }
-        .logo { font-weight: 900; color: var(--accent-blue); text-decoration: none; font-size: 1.2rem; }
+
+        /* NAVIGATION */
+        .navbar { 
+            background: rgba(15, 23, 42, 0.6); 
+            backdrop-filter: blur(15px); 
+            padding: 15px 8%; 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container { display: flex; align-items: center; text-decoration: none; }
+        
+        .logo-img {
+            height: 45px;
+            width: auto;
+            mix-blend-mode: multiply; 
+            filter: brightness(1.1) contrast(1.1);
+        }
+
+        .nav-links { display: flex; gap: 25px; }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+        .nav-links a:hover { color: var(--accent-blue); }
+
+        /* CONTAINER & CARD */
         .container { max-width: 850px; margin: 60px auto; padding: 0 25px; }
-        .back-link { color: var(--accent-blue); text-decoration: none; font-weight: 600; display: inline-block; margin-bottom: 20px; transition: 0.3s; }
+        
+        .back-link { 
+            color: var(--accent-blue); 
+            text-decoration: none; 
+            font-weight: 600; 
+            display: inline-block; 
+            margin-bottom: 20px; 
+            transition: 0.3s; 
+        }
         .back-link:hover { color: white; }
-        .article-card { background: var(--card-gray); backdrop-filter: blur(10px); padding: 45px; border-radius: 24px; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
-        .article-img { width: 100%; height: 400px; object-fit: cover; border-radius: 15px; margin-bottom: 35px; border: 1px solid rgba(77, 166, 255, 0.2); }
-        h1 { font-size: 2.8rem; margin-bottom: 25px; line-height: 1.2; background: linear-gradient(to bottom, #fff, var(--accent-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .content { color: var(--text-dim); font-size: 1.15rem; }
+
+        .article-card { 
+            background: var(--card-gray); 
+            backdrop-filter: blur(10px); 
+            padding: 45px; 
+            border-radius: 24px; 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3); 
+        }
+
+        .article-img { 
+            width: 100%; 
+            height: 400px; 
+            object-fit: cover; 
+            border-radius: 15px; 
+            margin-bottom: 35px; 
+            border: 1px solid rgba(77, 166, 255, 0.2); 
+        }
+
+        h1 { 
+            font-size: 2.5rem; 
+            margin-bottom: 25px; 
+            line-height: 1.2; 
+            background: linear-gradient(to bottom, #fff, var(--accent-blue)); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
+
+        h2 {
+            color: var(--accent-blue);
+            font-size: 1.5rem;
+            margin: 30px 0 15px 0;
+        }
+
+        .content { color: var(--text-dim); font-size: 1.1rem; }
         .content p { margin-bottom: 20px; }
+
+        .content ul {
+            margin-bottom: 25px;
+            padding-left: 20px;
+            list-style: none;
+        }
+
+        .content ul li {
+            position: relative;
+            margin-bottom: 10px;
+            padding-left: 25px;
+        }
+
+        .content ul li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
-    <nav class="navbar"><a href="index.html" class="logo">DATA & AI</a></nav>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo-container">
+            <img src="image_9b1d74.jpg" alt="Casanet" class="logo-img">
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="blog.html">Blog</a>
+            <a href="About.html">About</a>
+            <a href="Contact.html">Contact</a>
+        </div>
+    </nav>
+
     <div class="container">
         <a href="blog.html" class="back-link">← Retour au Blog</a>
+        
         <article class="article-card">
-            <img src="article1.jpg" alt="Data Strategy" class="article-img">
-            <h1>Data & AI : transformer la donnée en avantage décisionnel</h1>
+            <img src="article1.jpg" alt="Structuration des données" class="article-img">
+            
+            <h1>Pourquoi structurer la donnée est essentiel ?</h1>
+            
             <div class="content">
-                <p>Aujourd’hui, les entreprises génèrent une grande quantité de données. Pourtant, sans organisation, ces données restent inutiles.</p>
-                <p>La Data et l’IA permettent de transformer ces informations en décisions stratégiques. En structurant les données, les entreprises peuvent mieux comprendre leurs clients, anticiper les tendances et améliorer leurs performances.</p>
-                <p>Une bonne gestion des données permet de prendre des décisions plus rapides et plus efficaces.</p>
+                <p>La donnée brute est souvent hétérogène, non organisée et difficile à exploiter. Elle peut provenir de différentes sources : systèmes internes, réseaux sociaux, plateformes digitales ou interactions clients.</p>
+                
+                <p>Sans structuration, ces données présentent plusieurs limites :</p>
+                <ul>
+                    <li>Manque de cohérence</li>
+                    <li>Difficultés d’accès</li>
+                    <li>Risque d’erreurs</li>
+                    <li>Perte de valeur stratégique</li>
+                </ul>
+
+                <p>La structuration consiste à collecter, nettoyer, organiser et centraliser les données afin de les rendre exploitables. Ce processus permet d’améliorer la qualité de l’information et de faciliter son utilisation dans les processus décisionnels.</p>
+                
+                <p>Des plateformes comme Microsoft Azure permettent de stocker et structurer des volumes importants de données tout en garantissant leur sécurité et leur accessibilité.</p>
+                
+                <h2>L'intervention de Casanet</h2>
+                <p>Casanet intervient à ce niveau en proposant des solutions concrètes pour transformer vos données en actifs réels :</p>
+                <ul>
+                    <li>Des solutions d’hébergement sécurisées</li>
+                    <li>Des infrastructures réseau fiables</li>
+                    <li>Des services d’intégration IT</li>
+                </ul>
+
+                <p>Concrètement, Casanet permet aux entreprises de mettre en place une base solide pour organiser leurs données et garantir leur disponibilité. Une donnée bien structurée devient ainsi un actif stratégique qui peut être utilisé pour améliorer la performance globale de l’entreprise.</p>
             </div>
         </article>
     </div>
+
 </body>
 </html>
