@@ -61,7 +61,6 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* LOGO DANS LE COIN - SANS FOND */
         .logo-container {
             display: flex;
             align-items: center;
@@ -69,9 +68,8 @@
         }
 
         .logo-img {
-            height: 65px; /* Taille plus grande pour un impact visuel */
+            height: 60px;
             width: auto;
-            /* Rend le fond blanc de l'image transparent pour s'intégrer au design noir */
             mix-blend-mode: screen; 
             filter: brightness(1.2);
             transition: transform 0.3s ease;
@@ -99,19 +97,21 @@
             color: #4da6ff;
         }
 
-        /* CONTENU CENTRAL */
+        /* CONTENU CENTRAL AJUSTÉ */
         .content {
             text-align: center;
             z-index: 10;
             padding: 0 20px;
+            width: 100%;
         }
 
         .content h1 {
-            font-size: clamp(3rem, 10vw, 7.5rem);
+            /* Taille réduite pour tenir sur une seule ligne */
+            font-size: clamp(2rem, 8vw, 5.5rem); 
             font-weight: 900;
-            line-height: 0.9;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             text-transform: uppercase;
+            white-space: nowrap; /* Force le texte sur une ligne */
             background: linear-gradient(to bottom, #fff, #4da6ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -119,8 +119,8 @@
         }
 
         .content p {
-            font-size: clamp(1rem, 2vw, 1.5rem);
-            max-width: 700px;
+            font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+            max-width: 800px;
             margin: 0 auto;
             color: rgba(255, 255, 255, 0.9);
             letter-spacing: 1px;
@@ -129,8 +129,8 @@
 
         .btn {
             display: inline-block;
-            margin-top: 45px;
-            padding: 18px 45px;
+            margin-top: 40px;
+            padding: 16px 40px;
             background: #4da6ff;
             color: #fff;
             text-decoration: none;
@@ -158,7 +158,6 @@
 
         <nav class="navbar">
             <a href="index.html" class="logo-container">
-                <!-- Utilisation de l'image spécifiée -->
                 <img src="image_9b1d74.jpg" alt="Casanet Logo" class="logo-img">
             </a>
             
@@ -171,7 +170,7 @@
         </nav>
 
         <div class="content">
-            <h1>DATA &<br>STRATÉGIE</h1>
+            <h1>DATA & AI</h1>
             <p>Solutions digitales innovantes pour transformer vos données en performance réelle.</p>
             <a href="blog.html" class="btn">Découvrir le Blog</a>
         </div>
