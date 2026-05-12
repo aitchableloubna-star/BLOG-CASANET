@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Premium | Interface Cloud</title>
+    <title>Contact Premium | Casanet Cloud</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     
@@ -12,7 +12,7 @@
             --bg: #030712;
             --glass: rgba(15, 23, 42, 0.6);
             --border: rgba(255, 255, 255, 0.08);
-            --accent: #4da6ff; /* Bleu électrique */
+            --accent: #4da6ff;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
         }
@@ -21,7 +21,6 @@
 
         body { 
             background: #030712;
-            /* L'image de fond doit être sombre pour l'effet de verre */
             background-image: radial-gradient(circle at top right, rgba(77, 166, 255, 0.1), transparent), 
                               url('hero-bg.jpg'); 
             background-attachment: fixed;
@@ -29,9 +28,10 @@
             background-position: center;
             color: var(--text-main);
             min-height: 100vh;
+            line-height: 1.6;
         }
 
-        /* NAVIGATION GLASS */
+        /* NAVIGATION */
         .nav {
             padding: 20px 8%;
             display: flex;
@@ -45,7 +45,7 @@
             background: rgba(3, 7, 18, 0.4);
         }
 
-        .logo-img { height: 45px; width: auto; }
+        .logo-img { height: 50px; width: auto; }
 
         .nav-links { display: flex; gap: 30px; }
         .nav-links a { 
@@ -64,6 +64,8 @@
             text-align: center;
         }
 
+        .hero h2 { color: var(--accent); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
+        
         .hero h1 {
             font-size: clamp(2.5rem, 6vw, 4rem);
             font-weight: 800;
@@ -73,12 +75,7 @@
             margin-bottom: 15px;
         }
 
-        .hero p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
+        .hero p { color: var(--text-muted); font-size: 1.1rem; max-width: 700px; margin: 0 auto; }
 
         /* GRID LAYOUT */
         .grid-container {
@@ -97,49 +94,57 @@
             padding: 40px;
             backdrop-filter: blur(25px);
             transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
         }
 
         .contact-card:hover {
             border-color: rgba(77, 166, 255, 0.5);
-            transform: translateY(-10px);
+            transform: translateY(-5px);
             background: rgba(30, 41, 59, 0.4);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
         .icon-box {
-            width: 50px;
-            height: 50px;
+            width: 50px; height: 50px;
             background: rgba(77, 166, 255, 0.1);
             border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent);
-            margin-bottom: 10px;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--accent); margin-bottom: 20px;
         }
 
-        .contact-card h3 { font-size: 1.5rem; color: #fff; }
-        .contact-card p { color: var(--text-muted); font-size: 1rem; }
+        .contact-card h3 { font-size: 1.5rem; color: #fff; margin-bottom: 10px; }
+        .contact-card p { color: var(--text-muted); margin-bottom: 15px; }
 
         .contact-link {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: auto;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            color: var(--accent); text-decoration: none;
+            font-weight: 600; display: flex; align-items: center; gap: 8px; transition: 0.3s;
         }
+        .contact-link:hover { opacity: 0.8; }
 
-        .full-width { 
-            grid-column: span 2; 
-            text-align: center; 
-            background: linear-gradient(90deg, rgba(77,166,255,0.05), transparent);
-            padding: 30px;
+        .full-width { grid-column: span 2; }
+
+        /* VIDEO STYLING */
+        .video-container { width: 100%; border-radius: 20px; overflow: hidden; border: 1px solid var(--border); margin-top: 20px; }
+        video { width: 100%; display: block; }
+
+        /* FORM STYLING */
+        .contact-form { display: flex; flex-direction: column; gap: 20px; text-align: left; margin-top: 20px; }
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .form-group label { font-weight: 600; color: #fff; font-size: 0.9rem; }
+        .form-group input, .form-group textarea {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            padding: 14px; border-radius: 12px;
+            color: #fff; font-size: 1rem; transition: 0.3s;
         }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--accent); outline: none; background: rgba(255, 255, 255, 0.1); }
+        
+        .btn-send {
+            background: #0062ff; color: white; border: none;
+            padding: 16px 32px; border-radius: 12px;
+            font-weight: 800; cursor: pointer;
+            align-self: flex-start; transition: 0.3s;
+            box-shadow: 0 8px 20px rgba(0, 98, 255, 0.3);
+        }
+        .btn-send:hover { transform: scale(1.05); background: #0052d6; }
 
         @media (max-width: 850px) {
             .grid-container { grid-template-columns: 1fr; }
@@ -151,58 +156,72 @@
 
     <nav class="nav">
         <a href="index.html" class="logo-container">
-            <img src="logo-casanet.png" alt="Logo" class="logo-img">
+            <img src="logo-casanet.png" alt="Casanet" class="logo-img">
         </a>
         <div class="nav-links">
             <a href="index.html">Accueil</a>
-            <a href="blog.html">Solutions</a>
+            <a href="index.html#blog">Solutions</a>
             <a href="contact.html" class="active">Contact</a>
         </div>
     </nav>
 
     <header class="hero">
-        <h1>Entrons en <span style="color: var(--accent); -webkit-text-fill-color: var(--accent);">Contact</span></h1>
-        <p>Expertise Cloud et transformation digitale pour propulser votre entreprise vers l'avenir.</p>
+        <h2>Coordonnées</h2>
+        <h1>Contactez <span style="color: var(--accent);">Casanet</span></h1>
+        <p>Pour toute demande d’information ou assistance technique, nos experts vous accompagnent dans votre transformation numérique.</p>
     </header>
 
     <main class="grid-container">
         
+        <div class="contact-card full-width">
+            <div class="icon-box"><i data-lucide="play-circle"></i></div>
+            <h3>Découvrez nos solutions Cloud</h3>
+            <div class="video-container">
+                <video controls poster="hero-bg.jpg">
+                    <source src="move to cloud.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la vidéo.
+                </video>
+            </div>
+        </div>
+
         <div class="contact-card">
             <div class="icon-box"><i data-lucide="map-pin"></i></div>
-            <h3>Localisation</h3>
+            <h3>Siège Social</h3>
             <p>Av. Annakhil, Immeuble Riad 1, Hay Riad<br>10110 Rabat – Maroc</p>
-            <a href="https://maps.google.com" target="_blank" class="contact-link">Voir sur la carte →</a>
+            <a href="https://maps.google.com/?q=Casanet+Rabat" target="_blank" class="contact-link">Itinéraire →</a>
         </div>
 
         <div class="contact-card">
-            <div class="icon-box"><i data-lucide="phone"></i></div>
-            <h3>Téléphone</h3>
-            <p>Nos experts vous répondent du lundi au vendredi.</p>
-            <a href="tel:0537548300" class="contact-link">05 37 54 83 00</a>
-        </div>
-
-        <div class="contact-card">
-            <div class="icon-box"><i data-lucide="mail"></i></div>
-            <h3>Email</h3>
-            <p>Envoyez-nous vos briefs de projets ou questions techniques.</p>
-            <a href="mailto:contact@casanet.ma" class="contact-link">contact@casanet.ma</a>
-        </div>
-
-        <div class="contact-card">
-            <div class="icon-box"><i data-lucide="zap"></i></div>
-            <h3>Support Digital</h3>
-            <p>Accédez à votre espace client et nos outils en ligne.</p>
-            <a href="https://www.casanet.ma" target="_blank" class="contact-link">Espace client →</a>
+            <div class="icon-box"><i data-lucide="help-circle"></i></div>
+            <h3>Support & Info</h3>
+            <p>Disponible du lundi au vendredi.</p>
+            <a href="tel:0537548300" class="contact-link"><i data-lucide="phone" size="18"></i> 05 37 54 83 00</a>
+            <a href="mailto:contact@casanet.ma" class="contact-link" style="margin-top: 10px;"><i data-lucide="mail" size="18"></i> contact@casanet.ma</a>
         </div>
 
         <div class="contact-card full-width">
-            <p>Casanet reste à votre entière écoute pour transformer vos idées en réalité numérique.</p>
+            <h3>Envoyez-nous un message</h3>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label>Nom Complet</label>
+                    <input type="text" placeholder="Votre nom...">
+                </div>
+                <div class="form-group">
+                    <label>Email Professionnel</label>
+                    <input type="email" placeholder="votre@email.com">
+                </div>
+                <div class="form-group">
+                    <label>Votre Message</label>
+                    <textarea rows="4" placeholder="Comment pouvons-nous vous aider ?"></textarea>
+                </div>
+                <button type="submit" class="btn-send">Envoyer le message</button>
+            </form>
         </div>
 
     </main>
 
     <script>
-        // Active les icônes Lucide
+        // Initialisation des icônes Lucide
         lucide.createIcons();
     </script>
 
