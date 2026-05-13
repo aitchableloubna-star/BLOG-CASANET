@@ -22,6 +22,21 @@
             overflow: hidden; 
         }
 
+        /* --- THE CURSOR FOLLOWER EFFECT --- */
+        .cursor-follower {
+            width: 25px;
+            height: 25px;
+            background-color: rgba(77, 166, 255, 0.4); /* Light Blue like requested */
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none; /* Allows you to click things through the circle */
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease-out; /* Smooth movement */
+            box-shadow: 0 0 20px rgba(77, 166, 255, 0.6);
+        }
+
         /* IMAGE DE FOND */
         .hero {
             position: relative;
@@ -97,7 +112,7 @@
             color: #4da6ff;
         }
 
-        /* CONTENU CENTRAL AJUSTÉ */
+        /* CONTENU CENTRAL */
         .content {
             text-align: center;
             z-index: 10;
@@ -106,12 +121,11 @@
         }
 
         .content h1 {
-            /* Taille réduite pour tenir sur une seule ligne */
             font-size: clamp(2rem, 8vw, 5.5rem); 
             font-weight: 900;
             margin-bottom: 20px;
             text-transform: uppercase;
-            white-space: nowrap; /* Force le texte sur une ligne */
+            white-space: nowrap;
             background: linear-gradient(to bottom, #fff, #4da6ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -148,9 +162,17 @@
             transform: translateY(-3px);
         }
 
+        /* Hide follower on touch devices (phones) */
+        @media (max-width: 768px) {
+            .cursor-follower { display: none; }
+        }
+
     </style>
 </head>
 <body>
+
+    <!-- Circle added here -->
+    <div class="cursor-follower"></div>
 
     <section class="hero">
         
@@ -176,6 +198,16 @@
         </div>
 
     </section>
+
+    <!-- Script to move the circle -->
+    <script>
+        const follower = document.querySelector('.cursor-follower');
+        
+        window.addEventListener('mousemove', (e) => {
+            follower.style.left = e.clientX + 'px';
+            follower.style.top = e.clientY + 'px';
+        });
+    </script>
 
 </body>
 </html>
