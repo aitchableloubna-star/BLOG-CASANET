@@ -24,6 +24,23 @@
             background-size: cover;
             color: var(--text-main);
             line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- THE CURSOR FOLLOWER EFFECT --- */
+        .cursor-follower {
+            width: 30px;
+            height: 30px;
+            background-color: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none; 
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            transform: translate(-50%, -50%);
+            transition: transform 0.15s cubic-bezier(0.23, 1, 0.32, 1); 
         }
 
         /* NAVIGATION AVEC LOGO FIXÉ */
@@ -47,10 +64,9 @@
         }
 
         .logo-img {
-            height: 50px; /* Taille ajustée */
+            height: 50px; 
             width: auto;
             display: block;
-            /* Supprime le fond blanc du JPG pour le fond sombre */
             mix-blend-mode: multiply; 
             filter: brightness(1.1) contrast(1.1);
         }
@@ -139,6 +155,7 @@
         }
 
         @media (max-width: 1024px) {
+            .cursor-follower { display: none; }
             .grid-container { grid-template-columns: 1fr; }
             .wide, .tall, .vision-footer { grid-column: span 1; }
         }
@@ -146,9 +163,10 @@
 </head>
 <body>
 
+    <div class="cursor-follower"></div>
+
     <nav class="nav">
         <a href="index.html" class="logo-container">
-            <!-- Fichier image_9b1d74.jpg configuré -->
             <img src="image_9b1d74.jpg" alt="Casanet" class="logo-img">
         </a>
         <div class="nav-links">
@@ -199,6 +217,21 @@
         </div>
 
     </main>
+
+    <script>
+        const follower = document.querySelector('.cursor-follower');
+        let mouseX = 0;
+        let mouseY = 0;
+
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            requestAnimationFrame(() => {
+                follower.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
+            });
+        });
+    </script>
 
 </body>
 </html>
