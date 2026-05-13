@@ -20,12 +20,28 @@
             background-color: var(--dark-bg);
             color: var(--text-bright);
             min-height: 100vh;
-            /* Using your specific image for the background */
             background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
                         url('image_a9345f.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        /* --- THE CURSOR FOLLOWER EFFECT (Transparent White) --- */
+        .cursor-follower {
+            width: 30px;
+            height: 30px;
+            background-color: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none; 
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            transform: translate(-50%, -50%);
+            transition: transform 0.15s cubic-bezier(0.23, 1, 0.32, 1); 
         }
 
         /* Navigation */
@@ -132,12 +148,16 @@
         }
 
         @media (max-width: 768px) {
+            .cursor-follower { display: none; }
             .header { padding: 60px 20px; }
             .container { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
+
+    <!-- Circle added here -->
+    <div class="cursor-follower"></div>
 
     <nav class="navbar">
         <a href="index.html" class="logo">DATA & AI</a>
@@ -179,6 +199,22 @@
             <a href="article4.html" class="btn">Lire plus</a>
         </article>
     </main>
+
+    <!-- Script to move the circle -->
+    <script>
+        const follower = document.querySelector('.cursor-follower');
+        let mouseX = 0;
+        let mouseY = 0;
+
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            requestAnimationFrame(() => {
+                follower.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
+            });
+        });
+    </script>
 
 </body>
 </html>
