@@ -22,19 +22,21 @@
             overflow: hidden; 
         }
 
-        /* --- THE CURSOR FOLLOWER EFFECT --- */
+        /* --- THE CURSOR FOLLOWER EFFECT (Transparent White) --- */
         .cursor-follower {
-            width: 25px;
-            height: 25px;
-            background-color: rgba(77, 166, 255, 0.4); /* Light Blue like requested */
-            border: 2px solid rgba(255, 255, 255, 0.8);
+            width: 30px;
+            height: 30px;
+            background-color: rgba(255, 255, 255, 0.15); /* Light White Transparent */
+            border: 1px solid rgba(255, 255, 255, 0.4);   /* Subtle border */
             border-radius: 50%;
             position: fixed;
-            pointer-events: none; /* Allows you to click things through the circle */
+            pointer-events: none; 
             z-index: 9999;
+            left: 0;
+            top: 0;
             transform: translate(-50%, -50%);
-            transition: transform 0.1s ease-out; /* Smooth movement */
-            box-shadow: 0 0 20px rgba(77, 166, 255, 0.6);
+            /* Using a slightly longer transition for a "heavy/smooth" feel */
+            transition: transform 0.15s cubic-bezier(0.23, 1, 0.32, 1); 
         }
 
         /* IMAGE DE FOND */
@@ -162,7 +164,6 @@
             transform: translateY(-3px);
         }
 
-        /* Hide follower on touch devices (phones) */
         @media (max-width: 768px) {
             .cursor-follower { display: none; }
         }
@@ -171,11 +172,9 @@
 </head>
 <body>
 
-    <!-- Circle added here -->
     <div class="cursor-follower"></div>
 
     <section class="hero">
-        
         <div class="overlay"></div>
 
         <nav class="navbar">
@@ -196,16 +195,21 @@
             <p>Solutions digitales innovantes pour transformer vos données en performance réelle.</p>
             <a href="blog.html" class="btn">Découvrir le Blog</a>
         </div>
-
     </section>
 
-    <!-- Script to move the circle -->
     <script>
         const follower = document.querySelector('.cursor-follower');
-        
+        let mouseX = 0;
+        let mouseY = 0;
+
         window.addEventListener('mousemove', (e) => {
-            follower.style.left = e.clientX + 'px';
-            follower.style.top = e.clientY + 'px';
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            // Using requestAnimationFrame for high-performance rendering
+            requestAnimationFrame(() => {
+                follower.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
+            });
         });
     </script>
 
