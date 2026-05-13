@@ -15,7 +15,27 @@ body {
     background-position: center;
     color: #f8fafc;
     line-height: 1.8;
+    position: relative;
     overflow-x: hidden;
+}
+
+/* INTERACTIVE BACKGROUND EFFECT */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(77, 166, 255, 0.08), transparent 40%);
+    z-index: -1;
+    pointer-events: none;
+    animation: moveGlow 12s infinite alternate ease-in-out;
+}
+
+@keyframes moveGlow {
+    0% { transform: translate(-10%, -10%); }
+    100% { transform: translate(10%, 10%); }
 }
 
 /* NAVBAR MODERNE */
@@ -54,10 +74,28 @@ nav a {
     font-size: 16px;
     font-weight: 600;
     transition: 0.3s;
+    position: relative;
+    padding-bottom: 5px;
 }
 
 nav a:hover {
     color: #4da6ff;
+}
+
+/* Sliding underline effect for links */
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #4da6ff;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
 }
 
 /* CONTAINER DE L'ARTICLE */
@@ -83,7 +121,7 @@ nav a:hover {
 
 /* CARTE ARTICLE AVEC EFFET HOVER */
 .article-card {
-    background: rgba(30, 41, 59, 0.8); /* Gris-bleu transparent */
+    background: rgba(30, 41, 59, 0.8); 
     backdrop-filter: blur(12px);
     padding: 45px;
     border-radius: 24px;
@@ -92,31 +130,29 @@ nav a:hover {
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* L'EFFET HOVER SUR LA CARTE */
+/* ENHANCED HOVER ON CARD */
 .article-card:hover {
-    transform: translateY(-10px);
-    border-color: #4da6ff;
-    background: rgba(30, 41, 59, 0.95);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 20px rgba(77, 166, 255, 0.2);
+    transform: translateY(-12px) scale(1.01);
+    border-color: rgba(77, 166, 255, 0.5);
+    background: rgba(30, 41, 59, 0.92);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 
+                0 0 25px rgba(77, 166, 255, 0.15);
 }
+
 .logo-img {
-    height: 55px; /* Ajuste la hauteur selon tes besoins */
+    height: 55px;
     width: auto;
     display: block;
-    
-    /* Supprime le fond blanc si l'image en a un */
     mix-blend-mode: multiply; 
-    
-    /* Si le fond de ton image est noir, utilise 'screen' à la place de 'multiply' */
-    /* mix-blend-mode: screen; */
-    
     filter: contrast(1.1) brightness(1.1);
     transition: transform 0.3s ease;
 }
 
 .logo-img:hover {
-    transform: scale(1.05);
+    transform: scale(1.1) rotate(2deg); /* Added a slight rotate for personality */
 }
+
 /* DESIGN DE L'IMAGE DANS L'ARTICLE */
 .article-img {
     width: 100%;
@@ -130,6 +166,7 @@ nav a:hover {
 
 .article-card:hover .article-img {
     filter: brightness(1.1);
+    transform: scale(1.02);
 }
 
 /* TYPOGRAPHIE */
@@ -143,7 +180,7 @@ h1 {
 }
 
 .content {
-    color: #94a3b8; /* Gris doux pour le texte */
+    color: #94a3b8; 
     font-size: 1.15rem;
 }
 
@@ -165,8 +202,8 @@ button {
 
 button:hover {
     background: #3b82f6;
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
 }
 
 /* RESPONSIVE */
